@@ -7,25 +7,26 @@ namespace DiceGame
         static void Main(string[] args)
         {
 
+
             int playerRandomNum;
             int cpuRandomNum;
 
             int playerPoints = 0;
             int cpuPoints = 0;
 
-            Random random = new Random();
+          
             for(int i = 0; i < 10; i++)
             {
                 Console.WriteLine("Press any key to roll the dice!");
                 Console.ReadKey();
 
-                playerRandomNum = random.Next(1, 7);
+                playerRandomNum = randomNumber();
                 Console.WriteLine("You rolled a " + playerRandomNum);
 
                 Console.WriteLine("...");
                 System.Threading.Thread.Sleep(700);
 
-                cpuRandomNum = random.Next(1, 7);
+                cpuRandomNum = randomNumber();
                 Console.WriteLine("The cpu rolled a " + cpuRandomNum);
 
                 if(playerRandomNum > cpuRandomNum)
@@ -58,6 +59,14 @@ namespace DiceGame
             }
 
             Console.ReadKey();
+
+
+
+            static int randomNumber()
+            {
+                Random random = new Random();
+                return random.Next(1, 7);
+            }
         }
     }
 }
